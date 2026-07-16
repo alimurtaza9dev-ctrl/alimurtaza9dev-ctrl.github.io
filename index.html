@@ -3,657 +3,865 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Murtaza — Data Scientist</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Ali Murtaza — Aspiring Data Scientist</title>
+<meta name="description" content="Ali Murtaza — Aspiring Data Scientist. Machine Learning, Business Intelligence, Explainable AI. Projects, experience, and skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0e0e0f;
-  --bg2: #161618;
-  --bg3: #1e1e21;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --text: #f0f0f0;
-  --text2: #999;
-  --text3: #666;
-  --accent: #c8c8c8;
-  --white: #ffffff;
-  --tag-bg: rgba(255,255,255,0.06);
-  --tag-border: rgba(255,255,255,0.1);
-}
+  :root {
+    --bg: #faf6ec;
+    --panel: #ffffff;
+    --panel-2: #f2ecdd;
+    --border: #e3dac4;
+    --text: #26313c;
+    --text-dim: #5c6b78;
+    --text-faint: #8b98a3;
+    --blue: #3f9bd1;
+    --coral: #d9a441;
+    --blue-dim: rgba(63,155,209,0.12);
+    --coral-dim: rgba(217,164,65,0.14);
+    --radius: 10px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(63,155,209,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(217,164,65,0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-/* ── Nav ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 1.2rem 5%;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(14,14,15,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800; font-size: 1rem;
-  color: var(--white); text-decoration: none;
-  letter-spacing: -0.02em;
-}
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.8rem; color: var(--text2); text-decoration: none;
-  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--white); }
+  a { color: inherit; text-decoration: none; }
 
-/* ── Hero ── */
-#hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 0 5%; padding-top: 5rem;
-  position: relative;
-  overflow: hidden;
-}
+  img { max-width: 100%; display: block; }
 
-.hero-grid-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-}
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
 
-.hero-content {
-  position: relative; z-index: 1;
-  max-width: 1100px; margin: 0 auto; width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-}
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+  }
 
-.hero-left { animation: fadeUp 0.8s ease both; }
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text3); border: 1px solid var(--border2);
-  padding: 5px 12px; border-radius: 100px; margin-bottom: 1.5rem;
-}
-.hero-tag span { width: 6px; height: 6px; border-radius: 50%; background: #6ee7b7; animation: pulse 2s infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
 
-h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
-  font-weight: 800; line-height: 1.05;
-  letter-spacing: -0.04em; color: var(--white);
-  margin-bottom: 1.2rem;
-}
-h1 em { font-style: normal; color: var(--text2); }
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(250,246,236,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .brand span { color: var(--blue); }
+  .navlinks {
+    display: flex;
+    gap: 28px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+  .navlinks a { transition: color 0.15s ease; }
+  .navlinks a:hover { color: var(--text); }
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .nav-cta:hover { border-color: var(--blue); background: var(--blue-dim); }
+  .navlinks-mobile { display: none; }
 
-.hero-desc {
-  font-size: 1rem; color: var(--text2); line-height: 1.7;
-  max-width: 480px; margin-bottom: 2.5rem; font-weight: 300;
-}
+  @media (max-width: 720px) {
+    .navlinks { display: none; }
+  }
 
-.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-primary {
-  padding: 0.75rem 1.8rem; border-radius: 100px;
-  background: var(--white); color: #000;
-  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
-  text-decoration: none; transition: opacity 0.2s;
-  letter-spacing: 0.01em;
-}
-.btn-primary:hover { opacity: 0.85; }
-.btn-outline {
-  padding: 0.75rem 1.8rem; border-radius: 100px;
-  border: 1px solid var(--border2); color: var(--text);
-  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 400;
-  text-decoration: none; transition: border-color 0.2s, color 0.2s;
-}
-.btn-outline:hover { border-color: var(--text2); color: var(--white); }
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 88px 0 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 48px;
+    align-items: start;
+  }
+  .hero-photo-wrap {
+    justify-self: end;
+    opacity: 0;
+    animation: rise 0.7s ease 0.1s forwards;
+  }
+  .hero-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--blue), var(--coral));
+    overflow: hidden;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.14);
+  }
+  @media (max-width: 760px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-photo-wrap {
+      justify-self: start;
+      order: -1;
+      margin-bottom: 8px;
+    }
+    .hero-photo {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-faint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: rise 0.6s ease forwards;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--coral);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
 
-.hero-right {
-  display: flex; justify-content: center;
-  animation: fadeUp 0.8s 0.2s ease both;
-}
-.photo-frame {
-  position: relative; width: 300px; height: 300px;
-}
-.photo-frame img {
-  width: 100%; height: 100%;
-  border-radius: 50%; object-fit: cover;
-  border: 2px solid var(--border2);
-  position: relative; z-index: 1;
-}
-.photo-ring {
-  position: absolute; inset: -12px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  animation: spin 20s linear infinite;
-}
-.photo-ring::before {
-  content: ''; position: absolute;
-  top: -3px; left: 50%; transform: translateX(-50%);
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #6ee7b7;
-}
-.hero-stats {
-  position: absolute; bottom: -2rem; left: -1rem;
-  display: flex; gap: 0.8rem;
-}
-.stat-pill {
-  background: var(--bg3); border: 1px solid var(--border2);
-  border-radius: 12px; padding: 0.6rem 1rem;
-  font-size: 0.72rem;
-}
-.stat-pill strong {
-  font-family: 'Syne', sans-serif; font-size: 1.1rem;
-  font-weight: 700; color: var(--white); display: block;
-}
-.stat-pill span { color: var(--text3); }
+  h1.name {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: rise 0.7s ease 0.08s forwards;
+  }
 
-/* ── Sections ── */
-section { padding: 6rem 5%; }
-.section-inner { max-width: 1100px; margin: 0 auto; }
+  .role {
+    font-family: var(--body);
+    font-size: clamp(17px, 2.4vw, 21px);
+    color: var(--text-dim);
+    max-width: 620px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: rise 0.7s ease 0.16s forwards;
+  }
+  .role strong { color: var(--text); font-weight: 600; }
 
-.section-label {
-  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text3); margin-bottom: 0.6rem;
-  display: flex; align-items: center; gap: 8px;
-}
-.section-label::after {
-  content: ''; flex: 1; max-width: 40px;
-  height: 1px; background: var(--border2);
-}
-h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 700; letter-spacing: -0.03em;
-  color: var(--white); margin-bottom: 3rem;
-  line-height: 1.1;
-}
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-/* ── About ── */
-#about { background: var(--bg2); }
-.about-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start;
-}
-.about-text p {
-  font-size: 1rem; color: var(--text2); line-height: 1.8;
-  font-weight: 300; margin-bottom: 1rem;
-}
-.about-facts { display: flex; flex-direction: column; gap: 1rem; }
-.fact-item {
-  padding: 1.2rem 1.4rem;
-  background: var(--bg3); border: 1px solid var(--border);
-  border-radius: 12px;
-}
-.fact-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-.fact-value { font-size: 0.9rem; color: var(--text); font-weight: 400; }
+  /* Signature: SHAP-style contribution bar */
+  .shap-block {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px 20px;
+    max-width: 640px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: rise 0.7s ease 0.26s forwards;
+  }
+  .shap-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+  }
+  .shap-head .verdict {
+    color: var(--blue);
+    font-weight: 500;
+  }
+  .shap-bar {
+    position: relative;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--panel-2);
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .shap-bar .seg {
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: grow 0.9s cubic-bezier(.22,.9,.35,1) forwards;
+  }
+  .shap-bar .seg.blue { background: var(--blue); }
+  @keyframes grow { to { transform: scaleX(1); } }
 
-/* ── Skills ── */
-.skills-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
-}
-.skill-category {
-  background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 16px; padding: 1.4rem;
-}
-.skill-cat-title {
-  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--text3); margin-bottom: 1rem;
-}
-.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.skill-tag {
-  font-size: 0.78rem; padding: 5px 12px; border-radius: 100px;
-  background: var(--tag-bg); border: 1px solid var(--tag-border);
-  color: var(--text2); transition: border-color 0.2s, color 0.2s;
-}
-.skill-tag:hover { border-color: var(--text3); color: var(--white); }
+  .shap-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+  }
+  .shap-features span {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    padding: 4px 9px;
+    border-radius: 5px;
+    background: var(--blue-dim);
+    color: #1f6f97;
+    border: 1px solid rgba(63,155,209,0.3);
+  }
 
-/* ── Projects ── */
-#projects { background: var(--bg2); }
-.projects-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;
-}
-.project-card {
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: 16px; padding: 1.6rem;
-  transition: border-color 0.25s, transform 0.25s;
-  cursor: default;
-}
-.project-card:hover { border-color: var(--border2); transform: translateY(-3px); }
-.project-num {
-  font-family: 'Syne', sans-serif; font-size: 0.65rem;
-  color: var(--text3); letter-spacing: 0.1em; margin-bottom: 0.8rem;
-}
-.project-title {
-  font-family: 'Syne', sans-serif; font-size: 1rem;
-  font-weight: 600; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3;
-}
-.project-desc {
-  font-size: 0.82rem; color: var(--text2); line-height: 1.65;
-  font-weight: 300; margin-bottom: 1.2rem;
-}
-.project-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.project-tag {
-  font-size: 0.68rem; padding: 3px 9px; border-radius: 100px;
-  background: var(--tag-bg); border: 1px solid var(--tag-border); color: var(--text3);
-}
-.project-link {
-  font-size: 0.75rem; color: var(--text3); text-decoration: none;
-  display: flex; align-items: center; gap: 4px;
-  transition: color 0.2s;
-}
-.project-link:hover { color: var(--white); }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: rise 0.7s ease 0.34s forwards;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 12px 20px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--blue);
+    color: #ffffff;
+    font-weight: 500;
+  }
+  .btn-primary:hover { transform: translateY(-1px); background: #2f86b8; }
+  .btn-ghost {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: var(--text-dim); transform: translateY(-1px); }
 
-/* ── Experience ── */
-.exp-item {
-  display: grid; grid-template-columns: 140px 1fr; gap: 2.5rem;
-  padding: 2rem 0; border-bottom: 1px solid var(--border);
-}
-.exp-item:last-child { border-bottom: none; }
-.exp-date { font-size: 0.78rem; color: var(--text3); padding-top: 4px; line-height: 1.5; }
-.exp-title {
-  font-family: 'Syne', sans-serif; font-size: 1rem;
-  font-weight: 600; color: var(--white); margin-bottom: 0.3rem;
-}
-.exp-company { font-size: 0.82rem; color: var(--text3); margin-bottom: 0.8rem; }
-.exp-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.7; font-weight: 300; }
-.exp-desc li { margin-bottom: 0.3rem; list-style: none; padding-left: 1rem; position: relative; }
-.exp-desc li::before { content: '—'; position: absolute; left: 0; color: var(--text3); }
+  /* ---------- Sections generic ---------- */
+  section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
 
-/* ── Contact ── */
-#contact { background: var(--bg2); text-align: center; }
-#contact h2 { margin-bottom: 0.8rem; }
-.contact-sub {
-  font-size: 0.95rem; color: var(--text2); font-weight: 300;
-  max-width: 500px; margin: 0 auto 2.5rem;
-}
-.contact-links {
-  display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-}
-.contact-link {
-  display: flex; align-items: center; gap: 8px;
-  padding: 0.7rem 1.4rem; border-radius: 100px;
-  border: 1px solid var(--border2); color: var(--text2);
-  text-decoration: none; font-size: 0.82rem;
-  transition: border-color 0.2s, color 0.2s;
-}
-.contact-link:hover { border-color: var(--text); color: var(--white); }
-.contact-link svg { width: 14px; height: 14px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.4vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-/* ── Footer ── */
-footer {
-  padding: 2rem 5%; text-align: center;
-  border-top: 1px solid var(--border);
-  font-size: 0.75rem; color: var(--text3);
-}
+  /* ---------- Experience ---------- */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 24px;
+    padding: 26px 0;
+    border-top: 1px solid var(--border);
+  }
+  .exp-item:first-child { border-top: none; }
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+    padding-top: 3px;
+  }
+  .exp-role {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .exp-org {
+    font-size: 14px;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+  .exp-org span { color: var(--text-faint); }
+  .exp-list { list-style: none; }
+  .exp-list li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14.5px;
+    color: var(--text-dim);
+    margin-bottom: 7px;
+  }
+  .exp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 5px; height: 5px;
+    background: var(--coral);
+    border-radius: 50%;
+  }
+  .exp-stack {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .exp-stack span {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--panel-2);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
 
-/* ── Animations ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulse {
-  0%,100% { opacity: 1; } 50% { opacity: 0.3; }
-}
-@keyframes spin {
-  from { transform: rotate(0deg); } to { transform: rotate(360deg); }
-}
+  @media (max-width: 640px) {
+    .exp-item { grid-template-columns: 1fr; gap: 6px; }
+  }
 
-.reveal {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
+  /* ---------- Projects ---------- */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 760px) {
+    .proj-grid { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover { border-color: rgba(63,155,209,0.5); transform: translateY(-2px); }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .card-metric {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: #8a651c;
+    background: var(--coral-dim);
+    border: 1px solid rgba(217,164,65,0.4);
+    padding: 4px 9px;
+    border-radius: 5px;
+    white-space: nowrap;
+    margin-left: 10px;
+  }
+  .card-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .card-tags span {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background: var(--panel-2);
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+  }
+  .card-link {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--blue);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-link:hover { color: #1f6f97; }
+  .card.featured { grid-column: 1 / -1; }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .hero-content { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-  .hero-right { order: -1; }
-  .photo-frame { width: 200px; height: 200px; }
-  .hero-stats { position: static; margin-top: 1.5rem; justify-content: center; }
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-  nav .nav-links { display: none; }
-  .hero-desc { margin-left: auto; margin-right: auto; }
-  .hero-btns { justify-content: center; }
-}
+  /* ---------- Skills ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 760px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .skill-group-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .skill-chip-list { display: flex; flex-direction: column; gap: 8px; }
+  .skill-chip-list span {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    padding-left: 14px;
+    position: relative;
+  }
+  .skill-chip-list span::before {
+    content: '';
+    position: absolute; left: 0; top: 8px;
+    width: 5px; height: 5px;
+    background: var(--blue);
+    border-radius: 50%;
+  }
+
+  /* ---------- Education / Certs ---------- */
+  .edu-cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media (max-width: 720px) {
+    .edu-cert-grid { grid-template-columns: 1fr; }
+  }
+  .edu-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .edu-school {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .edu-degree { font-size: 14px; color: var(--text-dim); margin-bottom: 10px; }
+  .edu-meta { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); }
+  .cert-list { list-style: none; }
+  .cert-list li {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+  .cert-list li:first-child { border-top: none; padding-top: 0; }
+  .cert-list strong { color: var(--text); display: block; margin-bottom: 3px; font-weight: 500; }
+
+  /* ---------- Resume block ---------- */
+  .resume-block {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 34px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .resume-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .resume-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue-dim), var(--coral-dim));
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+  }
+  .resume-title {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .resume-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .resume-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 560px) {
+    .resume-block { flex-direction: column; align-items: flex-start; }
+  }
+  .contact {
+    padding: 90px 0 60px;
+    text-align: center;
+  }
+  .contact-title {
+    font-family: var(--display);
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .contact-sub {
+    color: var(--text-dim);
+    max-width: 480px;
+    margin: 0 auto 34px;
+    font-size: 15.5px;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  footer {
+    text-align: center;
+    padding: 24px 0 40px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-faint);
+  }
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav>
-  <a href="#hero" class="nav-logo">AM</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="wrap">
+    <div class="brand">AM<span>.</span></div>
+    <div class="navlinks">
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#education">education</a>
+      <a href="#resume">resume</a>
+    </div>
+    <a class="nav-cta" href="#contact">contact ↗</a>
+  </div>
 </nav>
 
-<!-- ── HERO ── -->
-<section id="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-tag">
-        <span></span>
-        Open to opportunities
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <h1 class="name">Ali Murtaza</h1>
+      <p class="role">Aspiring <strong>Data Scientist</strong> building the full ML lifecycle — from messy data to explainable predictions. Currently an ML intern at NOBEL Organization, with 9+ shipped projects across classification, regression, clustering, and time series.</p>
+
+      <div class="shap-block">
+        <div class="shap-head">
+          <span>feature_contributions.explain(candidate)</span>
+          <span class="verdict">→ prediction: strong fit</span>
+        </div>
+        <div class="shap-bar">
+          <div class="seg blue" style="width: 82%; animation-delay: 0.5s;"></div>
+        </div>
+        <div class="shap-features">
+          <span>+ python / sql</span>
+          <span>+ end-to-end ml pipelines</span>
+          <span>+ shap explainability</span>
+          <span>+ power bi reporting</span>
+          <span>+ 99/100 eval score</span>
+        </div>
       </div>
-      <h1>Ali<br>Murtaza<br><em>Data Scientist</em></h1>
-      <p class="hero-desc">
-        CS student at GCUF building real-world ML solutions. 9+ projects in classification, clustering, time series forecasting & business intelligence.
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="mailto:alimurtaza.9dev@gmail.com" class="btn-outline">Get in Touch</a>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="mailto:alimurtaza.9dev@gmail.com">Get in Touch</a>
+        <a class="btn btn-ghost" href="https://github.com/alimurtaza9dev-ctrl" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="photo-frame">
-        <div class="photo-ring"></div>
-        <!-- Replace 'photo.png' with your actual photo file name -->
-        <img src="photo.png" alt="Ali Murtaza" onerror="this.style.background='#1e1e21';this.style.display='flex'">
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="assets/profile.jpg" alt="Ali Murtaza">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="experience" class="wrap">
+  <div class="section-head">
+    <span class="section-tag">01 · experience</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-date">May 2026 —<br>Present</div>
+    <div>
+      <div class="exp-role">Machine Learning Intern</div>
+      <div class="exp-org">NOBEL Organization (USA) · Remote <span>— founded by Andrew Sachs</span></div>
+      <ul class="exp-list">
+        <li>Building Python ML pipelines with a global team: preprocessing, feature engineering, model training and evaluation</li>
+        <li>Applying classification, regression, and clustering across diverse datasets in cross-timezone collaboration</li>
+      </ul>
+      <div class="exp-stack">
+        <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span><span>Git</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-date">Mar 2026 —<br>May 2026</div>
+    <div>
+      <div class="exp-role">Data Science Intern</div>
+      <div class="exp-org">DevelopersHub Corporation <span>— structured 9-task programme, Faisalabad</span></div>
+      <ul class="exp-list">
+        <li>Scored 99/100 on Phase-2 evaluation; delivered 9 ML projects with 94%+ accuracy across 5 industries</li>
+        <li>Applied SHAP for explainable AI on 50,000+ record datasets; benchmarked 4 algorithms (LR, RF, DT, K-Means)</li>
+        <li>Built Power BI dashboards for non-technical stakeholder reporting; reduced misclassification by up to 18%</li>
+      </ul>
+      <div class="exp-stack">
+        <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Power BI</span><span>SQL</span><span>MLflow</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="section-inner reveal">
-    <div class="section-label">About</div>
-    <h2>Who I am</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          I'm a 5th-semester Computer Science student at GCUF, Faisalabad, with a deep passion for turning raw data into actionable insights.
-        </p>
-        <p>
-          Over the past year I've completed 9 end-to-end data science projects spanning machine learning, clustering, time series forecasting, and business intelligence — working with real-world datasets from banking, insurance, retail, energy, and healthcare domains.
-        </p>
-        <p>
-          I'm actively seeking internship and junior data science opportunities where I can contribute, learn, and grow alongside experienced professionals.
-        </p>
+<section id="projects" class="wrap">
+  <div class="section-head">
+    <span class="section-tag">02 · projects</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="proj-grid">
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-title">Term Deposit Prediction</span>
+        <span class="card-metric">91% ROC-AUC</span>
       </div>
-      <div class="about-facts">
-        <div class="fact-item">
-          <div class="fact-label">Education</div>
-          <div class="fact-value">BS Computer Science — GCUF, Faisalabad (2024–Present)</div>
-        </div>
-        <div class="fact-item">
-          <div class="fact-label">Location</div>
-          <div class="fact-value">Faisalabad, Pakistan · Open to Remote</div>
-        </div>
-        <div class="fact-item">
-          <div class="fact-label">Currently working on</div>
-          <div class="fact-value">Power BI KPI Dashboard + ML Portfolio</div>
-        </div>
-        <div class="fact-item">
-          <div class="fact-label">Languages</div>
-          <div class="fact-value">Urdu (Native) · English (Intermediate)</div>
-        </div>
+      <p class="card-desc">Predicts customer term-deposit subscription using logistic regression and random forest, with SHAP identifying call duration, balance, and age as the top drivers.</p>
+      <div class="card-tags"><span>Logistic Regression</span><span>Random Forest</span><span>SHAP</span></div>
+      <a class="card-link" href="https://github.com/alimurtaza9dev-ctrl" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-title">Customer Segmentation</span>
+        <span class="card-metric">87% silhouette</span>
+      </div>
+      <p class="card-desc">Segments 200+ customers into 5 behavioral groups using K-Means, with PCA for dimensionality reduction and visualization.</p>
+      <div class="card-tags"><span>K-Means</span><span>PCA</span></div>
+      <a class="card-link" href="https://github.com/alimurtaza9dev-ctrl" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="card featured">
+      <div class="card-top">
+        <span class="card-title">Online Bookstore — SQL Database Project</span>
+        <span class="card-metric">MySQL · 8 advanced queries</span>
+      </div>
+      <p class="card-desc">A normalized bookstore database (Books, Customers, Orders) with 500+ rows of sample data, built and queried entirely in MySQL. Goes beyond basic filtering into window functions, CTEs, and subqueries — running revenue totals, per-genre rankings, month-over-month trend analysis, and anti-joins for finding unordered inventory and inactive customers.</p>
+      <div class="card-tags"><span>MySQL</span><span>Window Functions</span><span>CTEs</span><span>Subqueries</span></div>
+      <a class="card-link" href="https://github.com/alimurtaza9dev-ctrl/Online-Bookstore-SQL-project" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-title">E-Commerce Sales Dashboard</span>
+        <span class="card-metric">Power BI</span>
+      </div>
+      <p class="card-desc">An interactive Power BI dashboard analyzing e-commerce sales performance, built for non-technical stakeholder reporting.</p>
+      <div class="card-tags"><span>Power BI</span><span>DAX</span><span>Data Modeling</span></div>
+      <a class="card-link" href="https://github.com/alimurtaza9dev-ctrl/Power-Bi-Ecommerce-Dashboard" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-title">Energy Forecasting</span>
+        <span class="card-metric">ARIMA(5,1,0)</span>
+      </div>
+      <p class="card-desc">Time-series forecasting of energy demand using an ARIMA model tuned for short-horizon accuracy.</p>
+      <div class="card-tags"><span>Time Series</span><span>ARIMA</span></div>
+      <a class="card-link" href="https://github.com/alimurtaza9dev-ctrl" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span class="card-title">Churn &amp; Loan Default Prediction</span>
+        <span class="card-metric">86% acc · 89% F1</span>
+      </div>
+      <p class="card-desc">Two classification models — customer churn (Decision Tree, 86% accuracy) and loan default risk (89% F1) — built as part of the DevelopersHub programme.</p>
+      <div class="card-tags"><span>Decision Tree</span><span>Classification</span></div>
+      <a class="card-link" href="https://github.com/alimurtaza9dev-ctrl" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="wrap">
+  <div class="section-head">
+    <span class="section-tag">03 · skills</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    <div>
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-chip-list">
+        <span>Python</span><span>SQL</span><span>C++</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">ML / AI</div>
+      <div class="skill-chip-list">
+        <span>Scikit-learn</span><span>SHAP</span><span>ARIMA</span><span>K-Means</span><span>PCA</span><span>Feature Engineering</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Visualization &amp; Analysis</div>
+      <div class="skill-chip-list">
+        <span>Power BI</span><span>Matplotlib</span><span>Seaborn</span><span>Pandas</span><span>NumPy</span><span>Excel (Advanced)</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Tools</div>
+      <div class="skill-chip-list">
+        <span>Git / GitHub</span><span>MLflow</span><span>Jupyter</span><span>VS Code</span><span>Google Colab</span><span>Docker (basic)</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SKILLS ── -->
-<section id="skills">
-  <div class="section-inner reveal">
-    <div class="section-label">Skills</div>
-    <h2>What I work with</h2>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <div class="skill-cat-title">Core Languages & Libraries</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Scikit-learn</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Machine Learning</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Logistic Regression</span>
-          <span class="skill-tag">Random Forest</span>
-          <span class="skill-tag">Decision Trees</span>
-          <span class="skill-tag">K-Means</span>
-          <span class="skill-tag">PCA</span>
-          <span class="skill-tag">ARIMA</span>
-          <span class="skill-tag">SHAP</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Visualization & BI</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Power BI</span>
-          <span class="skill-tag">Matplotlib</span>
-          <span class="skill-tag">Seaborn</span>
-          <span class="skill-tag">Excel</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Tools & Environment</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">Jupyter Notebook</span>
-          <span class="skill-tag">Google Colab</span>
-          <span class="skill-tag">VS Code</span>
-        </div>
-      </div>
+<section id="education" class="wrap">
+  <div class="section-head">
+    <span class="section-tag">04 · education &amp; certifications</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="edu-cert-grid">
+    <div class="edu-card">
+      <div class="edu-school">Government College University Faisalabad</div>
+      <div class="edu-degree">BS Computer Science — 5th Semester, CGPA 3.04/4.0</div>
+      <div class="edu-meta">2023 – PRESENT · FAISALABAD, PAKISTAN</div>
     </div>
+
+    <ul class="cert-list">
+      <li><strong>AI Editing Workshop</strong>MS Online Academy · May 2026</li>
+      <li><strong>99/100 — Phase-2 Evaluation</strong>Data Science &amp; Analytics, DevelopersHub Corporation · 2026</li>
+      <li><strong>Active on Kaggle</strong>Notebooks and competition submissions in progress</li>
+    </ul>
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
-<section id="projects">
-  <div class="section-inner reveal">
-    <div class="section-label">Projects</div>
-    <h2>Things I've built</h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-num">PROJECT 01</div>
-        <div class="project-title">Term Deposit Prediction</div>
-        <div class="project-desc">Predicted bank client subscription using Logistic Regression, Random Forest & Decision Trees. Applied SHAP for model interpretability — top features: call duration, balance, age. Evaluated with F1-Score & ROC-AUC.</div>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">SHAP</span>
-            <span class="project-tag">Random Forest</span>
-          </div>
-          <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="project-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">PROJECT 02</div>
-        <div class="project-title">Customer Segmentation</div>
-        <div class="project-desc">Segmented 200+ mall customers into 5 distinct groups using K-Means clustering. Used the Elbow Method for optimal K selection and PCA for 2D cluster visualisation.</div>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">K-Means</span>
-            <span class="project-tag">PCA</span>
-            <span class="project-tag">Unsupervised ML</span>
-          </div>
-          <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="project-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">PROJECT 03</div>
-        <div class="project-title">Energy Consumption Forecasting</div>
-        <div class="project-desc">Built a time series model to forecast daily household energy usage using ARIMA(5,1,0). Performed stationarity testing, ACF/PACF analysis, and evaluated with MAE & RMSE.</div>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">ARIMA</span>
-            <span class="project-tag">Time Series</span>
-            <span class="project-tag">Statsmodels</span>
-          </div>
-          <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="project-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">PROJECT 04</div>
-        <div class="project-title">Loan Default Risk Prediction</div>
-        <div class="project-desc">Built and benchmarked 3 classification models to predict loan default risk. Identified credit history as the strongest predictor. Evaluated with F1-Score and ROC-AUC curve.</div>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Classification</span>
-            <span class="project-tag">F1-Score</span>
-            <span class="project-tag">ROC-AUC</span>
-          </div>
-          <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="project-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">PROJECT 05</div>
-        <div class="project-title">Customer Churn Prediction</div>
-        <div class="project-desc">Predicted bank customer churn using a Decision Tree classifier with feature importance analysis. Age, Account Balance, and Geography identified as the top drivers of churn behaviour.</div>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Decision Tree</span>
-            <span class="project-tag">Feature Importance</span>
-          </div>
-          <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="project-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">PROJECT 06 · IN PROGRESS</div>
-        <div class="project-title">Power BI KPI Dashboard</div>
-        <div class="project-desc">Building an interactive business intelligence dashboard with Excel data preprocessing and Power BI visual storytelling. Focused on KPI tracking, trend analysis, and executive reporting.</div>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Power BI</span>
-            <span class="project-tag">Excel</span>
-            <span class="project-tag">BI</span>
-          </div>
-          <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="project-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-    </div>
+<section id="resume" class="wrap">
+  <div class="section-head">
+    <span class="section-tag">05 · resume</span>
+    <div class="section-line"></div>
   </div>
-</section>
 
-<!-- ── EXPERIENCE ── -->
-<section id="experience">
-  <div class="section-inner reveal">
-    <div class="section-label">Experience</div>
-    <h2>Where I've worked</h2>
-
-    <div class="exp-item">
-      <div class="exp-date">2026<br>Present</div>
+  <div class="resume-block">
+    <div class="resume-left">
+      <div class="resume-icon">PDF</div>
       <div>
-        <div class="exp-title">Data Science Intern</div>
-        <div class="exp-company">Independent · Structured 9-Task Programme</div>
-        <ul class="exp-desc">
-          <li>Completed 9 end-to-end ML projects across classification, regression, clustering, and time series</li>
-          <li>Applied SHAP for explainable AI across 5+ real-world business datasets</li>
-          <li>Worked with datasets from banking, insurance, energy, retail, and healthcare industries</li>
-          <li>Tools: Python, Pandas, Scikit-learn, Matplotlib, Seaborn, Power BI, SQL</li>
-        </ul>
+        <div class="resume-title">Ali Murtaza — Resume</div>
+        <div class="resume-sub">1 page · updated 2026</div>
       </div>
     </div>
-
-    <div class="exp-item">
-      <div class="exp-date">2024<br>Present</div>
-      <div>
-        <div class="exp-title">BS Computer Science</div>
-        <div class="exp-company">GCUF — Government College University Faisalabad</div>
-        <ul class="exp-desc">
-          <li>Currently in 5th semester (started Feb 2024) with focus on applied data science and machine learning</li>
-          <li>Relevant coursework: Data Structures & Algorithms, Database Systems, Statistics, OOP</li>
-          <li>Self-directed learning in Python, ML, Power BI, and Data Analysis</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="section-inner reveal">
-    <div class="section-label">Contact</div>
-    <h2>Let's work together</h2>
-    <p class="contact-sub">I'm actively looking for internship and junior data science roles. Feel free to reach out.</p>
-    <div class="contact-links">
-      <a href="mailto:alimurtaza.9dev@gmail.com" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        alimurtaza.9dev@gmail.com
-      </a>
-      <a href="https://linkedin.com/in/alimurtaza" target="_blank" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://github.com/alimurtaza9dev-ctrl" target="_blank" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub
-      </a>
-      <a href="tel:+923211376777" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
-        0321-1376777
-      </a>
+    <div class="resume-actions">
+      <a class="btn btn-ghost" href="assets/resume.pdf" target="_blank" rel="noopener">View ↗</a>
+      <a class="btn btn-primary" href="assets/resume.pdf" download="Ali_Murtaza_Resume.pdf">Download Resume</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <p>© 2026 Ali Murtaza · Built with HTML & CSS · Hosted on GitHub Pages</p>
-</footer>
+<section id="contact" class="contact wrap" style="border-bottom:none;">
+  <div class="section-tag" style="display:block; margin-bottom:18px;">06 · contact</div>
+  <h2 class="contact-title">Let's build something<br>with the data.</h2>
+  <p class="contact-sub">Open to remote roles and relocation. Reach out for opportunities, collaboration, or just to talk about explainable ML.</p>
+  <div class="contact-links">
+    <a class="btn btn-primary" href="mailto:alimurtaza.9dev@gmail.com">alimurtaza.9dev@gmail.com</a>
+    <a class="btn btn-ghost" href="https://github.com/alimurtaza9dev-ctrl" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/ali-murtaza-907863396" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+</section>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+<footer>built by ali murtaza · deployed on github pages</footer>
 
 </body>
 </html>
